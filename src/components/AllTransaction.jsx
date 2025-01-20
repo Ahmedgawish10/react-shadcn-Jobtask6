@@ -7,7 +7,7 @@ const Transactions = () => {
   const [dataTransactions, setDataTransactions] = useState([]);
  // fetch the data from json used(jsonplachoder)
   useEffect(() => {
-    fetch("http://localhost:3001/transactions")
+    fetch("https://bakar-server.vercel.app/transactions")
       .then((response) => response.json())
       .then((data) => setDataTransactions(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -45,7 +45,7 @@ const Transactions = () => {
     }
   };
   // download transaction operation 
-  const handleDownload = () => {
+  const handleDownloadTransaction = () => {
     const doc = new jsPDF();
     
     // title of transaction in pdf for clearfiy
@@ -85,7 +85,7 @@ const Transactions = () => {
           <button className="  px-4 py-2 rounded text-gray-500">Issued cards</button>
         </div>
         <div className="box2 flex gap-2 self-end sm:self-auto order-[-5] sm:order-[5]">
-          <button className="border-2 border-solid border-black px-4 py-2 rounded mr-2 hover:bg-black hover:text-white duration-500" onClick={handleDownload}>Download</button>
+          <button className="border-2 border-solid border-black px-4 py-2 rounded mr-2 hover:bg-black hover:text-white duration-500" onClick={handleDownloadTransaction}>Download</button>
           <button className="border-2 border-solid border-black px-4 py-2 rounded mr-2 hover:bg-black hover:text-white duration-500">Filter</button>
         </div>
 
